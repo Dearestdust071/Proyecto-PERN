@@ -1,86 +1,44 @@
+import React from "react";
 
-
-
+const products = [
+  { id: 1, name: "Microsoft Surface Pro", price: 1999, availability: true },
+  { id: 2, name: "MacBook Air M2", price: 1299, availability: false },
+  { id: 3, name: "Lenovo ThinkPad X1", price: 1499, availability: true },
+];
 
 export default function ProductList() {
-
-    return(
-
-
-
-<div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+  return (
+    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" className="p-4">
-                    Available
-                </th>
-                <th scope="col" className="px-6 py-3">
-                    Producto
-                </th>
-                
-                <th scope="col" className="px-6 py-3">
-                    Price
-                </th>
-            </tr>
+          <tr>
+            <th scope="col" className="p-4">Available</th>
+            <th scope="col" className="px-6 py-3">Product</th>
+            <th scope="col" className="px-6 py-3">Price</th>
+          </tr>
         </thead>
         <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                    <div className="flex items-center">
-                        <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
-                        <label className="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td className="px-6 py-4">
-                    100 $
-                </td>
-     
+          {products.map((product) => (
+            <tr
+              key={product.id}
+              className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+            >
+              <td className="w-4 p-4">
+                <input
+                  type="checkbox"
+                  checked={product.availability}
+                  readOnly
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600"
+                />
+              </td>
+              <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {product.name}
+              </td>
+              <td className="px-6 py-4">${product.price}</td>
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td className="w-4 p-4">
-                    <div className="flex items-center">
-                        <input id="checkbox-table-search-2" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"></input>
-                        <label className="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td className="px-6 py-4">
-                    White
-                </td>
-                <td className="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td className="px-6 py-4">
-                    No
-                </td>
-                <td className="px-6 py-4">
-                    Yes
-                </td>
-                <td className="px-6 py-4">
-                    $1999
-                </td>
-                <td className="px-6 py-4">
-                    1.0 lb.
-                </td>
-                <td className="flex items-center px-6 py-4">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" className="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                </td>
-            </tr>
-           
+          ))}
         </tbody>
-    </table>
-</div>
-
-
-    )
-
-    
-    
+      </table>
+    </div>
+  );
 }
