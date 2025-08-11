@@ -57,7 +57,8 @@ export default function ProductForm() {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gradient-to-br from-blue-100/60 via-white/80 to-purple-100/60 backdrop-blur-sm z-50">
+    // backdrop-blur-sm z-50 bg-gradient-to-br from-blue-100/60 via-white/80 to-purple-100/60
+    <div className="fixed inset-0 flex items-center justify-center  ">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 p-8 space-y-7 animate-fade-in"
